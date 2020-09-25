@@ -70,7 +70,7 @@ for(state in sort(unique(names(battleground_states)))) {
   y <- modeling_data[, c(4:5)]
   n <-  modeling_data$n
   dates <-  modeling_data$poll_end
-  all_dates <- unique(c(dates, Sys.Date()))
+  all_dates <- unique(c(as.Date("2020-01-01"), dates, Sys.Date()))
   fit <- yapa(y = y, n = n, dates = dates, all_dates = all_dates, iter = 1000)
   
   # Extract results 
@@ -92,7 +92,8 @@ for(state in sort(unique(names(battleground_states)))) {
     scale_x_date(date_breaks = '1 month', date_labels = "%b %Y", 
                  limits = c(min(fit$all_dates), as.Date("2020-11-10"))) +
     scale_y_continuous( breaks = seq(0, 1, 0.05), 
-                       labels = paste0(seq(0, 100, 5), '%')) +
+                       labels = paste0(seq(0, 100, 5), '%'),
+                       expand = c(0.25, 0)) +
     scale_fill_manual(values = c('blue', 'red')) +
     scale_color_manual(values = c('blue', 'red')) +
     theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 6),
