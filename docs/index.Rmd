@@ -1,12 +1,9 @@
 ---
 title: ""
 output: 
-  html_document:
-    theme: cerulean
-    toc: false
-    toc_float: false
-    toc_depth: 4
+  html_document
 ---
+
 <style type="text/css">
 body { 
   font-size: 16px;
