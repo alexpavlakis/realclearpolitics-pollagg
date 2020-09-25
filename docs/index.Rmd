@@ -1,0 +1,34 @@
+---
+title: ""
+output: 
+  html_document:
+    theme: cerulean
+    toc: false
+    toc_float: false
+    toc_depth: 4
+---
+<style type="text/css">
+body { 
+  font-size: 16px;
+}
+</style>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = F, message = F, cache = F, fig.align = 'center')
+```
+
+```{r data}
+# Fit model which brings 
+load('../results/plots.rda')
+load('../results/res.rda')
+```
+
+<br>
+This page contains battlegound state poll averages from [realclearpolitics](https://www.realclearpolitics.com/epolls/latest_polls/) as of `r gsub(" 0", " ", format(Sys.Date(), format="%B %d, %Y"))`, `r as.numeric(as.Date("2020-11-03") - Sys.Date())` days from election day 2020.
+<br>
+
+```{r plots, fig.height=12, fig.width = 10}
+library(gridExtra)
+do.call('grid.arrange', c(plots, ncol = 3))
+```

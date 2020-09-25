@@ -1,0 +1,7 @@
+name: ""
+navbar: 
+  title: "2020 presidential election"
+  left: 
+    - text: "battleground states"
+      href: index.html
+  
